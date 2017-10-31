@@ -20,6 +20,10 @@ public class Building : MonoBehaviour {
 
 	void Awake () {
 		state = State.Idle;
+
+		//z-order
+		float zPosition = Gameplay.instance.zLayer + transform.position.y * 0.1f;
+		transform.position = new Vector3 (transform.position.x, transform.position.y, zPosition);
 	}
 
 	public void Drag(){
@@ -34,7 +38,10 @@ public class Building : MonoBehaviour {
 		if (state == State.Dragging) {
 			//follow mouse
 			Vector3 myPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-			transform.position = new Vector3 (myPosition.x, myPosition.y, Gameplay.instance.zLayer);
+
+			//z-order
+			float zPosition = Gameplay.instance.zLayer + myPosition.y * 0.1f;
+			transform.position = new Vector3 (myPosition.x, myPosition.y, zPosition);
 		}
 	}
 }
