@@ -49,9 +49,12 @@ public class Gameplay : MonoBehaviour {
 			return;
 
 		Debug.Log ("try to build");
+
 		//if money and empty grid
-		if (Player.instance.TakeMoney(dragBuild.GetComponent<Building> ().cost)) {
-			dragBuild.GetComponent<Building> ().Stop ();
+		Building b = dragBuild.GetComponent<Building> ();
+
+		if (!b.isColliding() && Player.instance.TakeMoney(b.cost)) {
+			b.Stop ();
 		} else {
 			Destroy (dragBuild);
 		}

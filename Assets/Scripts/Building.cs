@@ -10,6 +10,8 @@ public class Building : MonoBehaviour {
 	public float timeToPrize = 60f;		//seconds
 
 	Transform clock;
+	private bool colliding = false;
+	SpriteRenderer sp;
 
 	public enum State {
 		Idle,
@@ -22,6 +24,7 @@ public class Building : MonoBehaviour {
 
 	void Awake () {
 		state = State.Idle;
+		sp = GetComponent<SpriteRenderer> ();
 	}
 
 	void Start(){
@@ -50,6 +53,8 @@ public class Building : MonoBehaviour {
 			//z-order
 			float zPosition = Gameplay.instance.zLayer + myPosition.y * 0.1f;
 			transform.position = new Vector3 (myPosition.x, myPosition.y, zPosition);
+
+			CheckColliding ();
 		}
 		else if (state == State.Creating) {
 
@@ -61,5 +66,35 @@ public class Building : MonoBehaviour {
 
 		//show clock if Creating
 		clock.gameObject.SetActive(state == State.Creating);
+	}
+
+	void CheckColliding(){
+		if (colliding) {
+			GetComponent<SpriteRenderer> ().color = Color.red;
+		} else {
+			GetComponent<SpriteRenderer> ().color = Color.white;
+		}
+	}
+
+	void OnTriggerEnter2D(Collider2D coll){
+		if (coll.CompareTag ("Building")) {
+			colliding = true;
+		}
+	}
+
+	void OnTriggerStay2D(Collider2D coll){
+		if (coll.CompareTag ("Building")) {
+			colliding = true;
+		}
+	}
+
+	void OnTriggerExit2D(Collider2D coll){
+		if (coll.CompareTag ("Building")) {
+			colliding = false;
+		}
+	}
+
+	public bool isColliding(){
+		return colliding;
 	}
 }
