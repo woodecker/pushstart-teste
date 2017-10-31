@@ -9,6 +9,8 @@ public class Building : MonoBehaviour {
 	public float timeToCreate = 10f;	//seconds
 	public float timeToPrize = 60f;		//seconds
 
+	Transform clock;
+
 	public enum State {
 		Idle,
 		Dragging,
@@ -26,6 +28,8 @@ public class Building : MonoBehaviour {
 		//z-order
 		float zPosition = Gameplay.instance.zLayer + transform.position.y * 0.1f;
 		transform.position = new Vector3 (transform.position.x, transform.position.y, zPosition);
+
+		clock = transform.Find ("Clock");
 	}
 
 	public void Drag(){
@@ -37,13 +41,25 @@ public class Building : MonoBehaviour {
 	}
 
 	void Update () {
+		
 		if (state == State.Dragging) {
+			
 			//follow mouse
-			Vector3 myPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+			Vector3 myPosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 
 			//z-order
 			float zPosition = Gameplay.instance.zLayer + myPosition.y * 0.1f;
 			transform.position = new Vector3 (myPosition.x, myPosition.y, zPosition);
 		}
+		else if (state == State.Creating) {
+
+			timeToCreate -= Time.deltaTime;
+			if (timeToCreate <= 0f) {
+				state = State.Completed;
+			}
+		}
+
+		//show clock if Creating
+		clock.gameObject.SetActive(state == State.Creating);
 	}
 }
