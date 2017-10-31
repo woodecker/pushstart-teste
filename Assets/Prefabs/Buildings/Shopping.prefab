@@ -132,7 +132,7 @@ MonoBehaviour:
   cost: 25
   prize: 5
   timeToCreate: 10
-  timeToPrize: 60
+  timeToPrize: 6
   state: 0
 --- !u!212 &212343117234319046
 SpriteRenderer:

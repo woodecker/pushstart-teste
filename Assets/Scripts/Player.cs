@@ -10,7 +10,7 @@ public class Player : MonoBehaviour {
 	public int money = 999;
 	public int Money {
 		get {return money;}
-		set {money = value;}
+		set {money = value; UpdateGui ();}
 	}
 
 	public Text nicknameText;

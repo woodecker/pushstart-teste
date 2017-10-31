@@ -129,10 +129,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 143bd982da7ebab4ebf79ad192a7e59f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 15
-  prize: 5
+  cost: 10
+  prize: 2
   timeToCreate: 10
-  timeToPrize: 60
+  timeToPrize: 6
   state: 0
 --- !u!212 &212427778206458530
 SpriteRenderer:

@@ -8,6 +8,7 @@ public class Building : MonoBehaviour {
 	public int prize = 5;
 	public float timeToCreate = 10f;	//seconds
 	public float timeToPrize = 60f;		//seconds
+	float t_nextPrize = 0f;
 
 	Transform clock;
 	private bool colliding = false;
@@ -23,6 +24,9 @@ public class Building : MonoBehaviour {
 	public State state;
 
 	void Awake () {
+
+		t_nextPrize = timeToPrize;
+
 		state = State.Idle;
 		sp = GetComponent<SpriteRenderer> ();
 	}
@@ -55,12 +59,17 @@ public class Building : MonoBehaviour {
 			transform.position = new Vector3 (myPosition.x, myPosition.y, zPosition);
 
 			CheckColliding ();
-		}
-		else if (state == State.Creating) {
+		} else if (state == State.Creating) {
 
 			timeToCreate -= Time.deltaTime;
 			if (timeToCreate <= 0f) {
 				state = State.Completed;
+			}
+		} else if (state == State.Completed) {
+			t_nextPrize -= Time.deltaTime;
+			if (t_nextPrize <= 0) {
+				Player.instance.Money += prize;
+				t_nextPrize = timeToPrize;
 			}
 		}
 

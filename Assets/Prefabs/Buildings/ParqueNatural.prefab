@@ -130,9 +130,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 20
-  prize: 5
+  prize: 4
   timeToCreate: 10
-  timeToPrize: 60
+  timeToPrize: 6
   state: 0
 --- !u!212 &212173847755648290
 SpriteRenderer:
