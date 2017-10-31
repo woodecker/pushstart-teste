@@ -9,43 +9,60 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1346705143869348}
+  m_RootGameObject: {fileID: 1315841977061148}
   m_IsPrefabParent: 1
---- !u!1 &1346705143869348
+--- !u!1 &1315841977061148
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4594329011935206}
-  - component: {fileID: 212427778206458530}
+  - component: {fileID: 4516531550329526}
+  - component: {fileID: 212616203699804540}
+  - component: {fileID: 114647382524404804}
   m_Layer: 0
-  m_Name: Fazenda
+  m_Name: Fabrica
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4594329011935206
+--- !u!4 &4516531550329526
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1346705143869348}
+  m_GameObject: {fileID: 1315841977061148}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5749154, y: -1.7403544, z: 0}
+  m_LocalPosition: {x: -1.4905231, y: 0.26239833, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &212427778206458530
+--- !u!114 &114647382524404804
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1315841977061148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 143bd982da7ebab4ebf79ad192a7e59f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cost: 10
+  prize: 5
+  timeToCreate: 10
+  timeToPrize: 60
+  state: 0
+--- !u!212 &212616203699804540
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1346705143869348}
+  m_GameObject: {fileID: 1315841977061148}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -74,7 +91,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 74638f77ee4df2942a3f28f6fa32d93c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d3b5b89ea52c66541a482df3f31bb591, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

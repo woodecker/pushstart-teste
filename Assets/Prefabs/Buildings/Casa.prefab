@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4694622364344038}
   - component: {fileID: 212473346664696386}
+  - component: {fileID: 114610828973908890}
   m_Layer: 0
   m_Name: Casa
   m_TagString: Untagged
@@ -40,6 +41,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114610828973908890
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1997724125679784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 143bd982da7ebab4ebf79ad192a7e59f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cost: 10
+  prize: 5
+  timeToCreate: 10
+  timeToPrize: 60
+  state: 0
 --- !u!212 &212473346664696386
 SpriteRenderer:
   m_ObjectHideFlags: 1
