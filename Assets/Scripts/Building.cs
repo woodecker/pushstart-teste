@@ -20,7 +20,9 @@ public class Building : MonoBehaviour {
 
 	void Awake () {
 		state = State.Idle;
+	}
 
+	void Start(){
 		//z-order
 		float zPosition = Gameplay.instance.zLayer + transform.position.y * 0.1f;
 		transform.position = new Vector3 (transform.position.x, transform.position.y, zPosition);

@@ -7,7 +7,7 @@ public class Player : MonoBehaviour {
 
 	public string nickname;
 
-	private int money = 999;
+	public int money = 999;
 	public int Money {
 		get {return money;}
 		set {money = value;}

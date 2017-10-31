@@ -8,8 +8,6 @@ public class Gameplay : MonoBehaviour {
 
 	public static Gameplay instance;
 
-	public GameObject[] build;
-
 	public GameObject dragBuild;
 
 	public float zLayer = 0f;
@@ -34,14 +32,22 @@ public class Gameplay : MonoBehaviour {
 		return paused;
 	}
 
-	public void NewBuilding(int buildId){
+	public void NewBuilding(GameObject building){
+
+		if (building.GetComponent<Building> ().cost > Player.instance.Money)
+			return;
+
 		Debug.Log ("new building");
 		Vector3 myPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-		dragBuild = Instantiate (build [buildId], myPosition, Quaternion.identity);
+		dragBuild = Instantiate (building, myPosition, Quaternion.identity);
 		dragBuild.GetComponent<Building> ().Drag ();
 	}
 
 	public void ReleaseBuilding(){
+
+		if (dragBuild == null)
+			return;
+
 		Debug.Log ("try to build");
 		//if money and empty grid
 		if (Player.instance.TakeMoney(dragBuild.GetComponent<Building> ().cost)) {
@@ -49,5 +55,7 @@ public class Gameplay : MonoBehaviour {
 		} else {
 			Destroy (dragBuild);
 		}
+
+		dragBuild = null;
 	}
 }

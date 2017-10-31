@@ -752,6 +752,11 @@ Prefab:
       propertyPath: moneyText
       value: 
       objectReference: {fileID: 1975693733}
+    - target: {fileID: 114477138008013880, guid: 4ed3ffd5337f93c439f18f97317881ef,
+        type: 2}
+      propertyPath: money
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4ed3ffd5337f93c439f18f97317881ef, type: 2}
   m_IsPrefabParent: 0
@@ -834,6 +839,7 @@ GameObject:
   - component: {fileID: 907953122}
   - component: {fileID: 907953121}
   - component: {fileID: 907953120}
+  - component: {fileID: 907953124}
   - component: {fileID: 907953123}
   m_Layer: 5
   m_Name: Button Casa
@@ -953,10 +959,11 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 51083711}
           m_MethodName: NewBuilding
-          m_Mode: 3
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgument: {fileID: 1997724125679784, guid: 320d49c6838bd3c41a47441fce814241,
+              type: 2}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -982,6 +989,18 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
+--- !u!114 &907953124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 907953118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e25e92b6b8a5e664aadd7e0400937ec0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  building: {fileID: 1997724125679784, guid: 320d49c6838bd3c41a47441fce814241, type: 2}
 --- !u!1 &1142301908
 GameObject:
   m_ObjectHideFlags: 0
@@ -1321,6 +1340,7 @@ GameObject:
   - component: {fileID: 1440653356}
   - component: {fileID: 1440653355}
   - component: {fileID: 1440653354}
+  - component: {fileID: 1440653358}
   - component: {fileID: 1440653357}
   m_Layer: 5
   m_Name: Button Shopping
@@ -1440,10 +1460,11 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 51083711}
           m_MethodName: NewBuilding
-          m_Mode: 3
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgument: {fileID: 1681587945681230, guid: 11d61b3a80d32c94486fb00240f4a514,
+              type: 2}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
             m_IntArgument: 4
             m_FloatArgument: 0
             m_StringArgument: 
@@ -1469,6 +1490,18 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
+--- !u!114 &1440653358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1440653352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e25e92b6b8a5e664aadd7e0400937ec0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  building: {fileID: 1681587945681230, guid: 11d61b3a80d32c94486fb00240f4a514, type: 2}
 --- !u!1 &1456405801
 GameObject:
   m_ObjectHideFlags: 0
@@ -1480,6 +1513,7 @@ GameObject:
   - component: {fileID: 1456405805}
   - component: {fileID: 1456405804}
   - component: {fileID: 1456405803}
+  - component: {fileID: 1456405807}
   - component: {fileID: 1456405806}
   m_Layer: 5
   m_Name: Button Fabrica
@@ -1599,10 +1633,11 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 51083711}
           m_MethodName: NewBuilding
-          m_Mode: 3
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgument: {fileID: 1315841977061148, guid: d532edc335ddab646bc628139d187c9b,
+              type: 2}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
             m_IntArgument: 1
             m_FloatArgument: 0
             m_StringArgument: 
@@ -1628,6 +1663,18 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
+--- !u!114 &1456405807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1456405801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e25e92b6b8a5e664aadd7e0400937ec0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  building: {fileID: 1315841977061148, guid: d532edc335ddab646bc628139d187c9b, type: 2}
 --- !u!1 &1474609963
 GameObject:
   m_ObjectHideFlags: 0
@@ -1775,6 +1822,7 @@ GameObject:
   - component: {fileID: 1644175567}
   - component: {fileID: 1644175566}
   - component: {fileID: 1644175565}
+  - component: {fileID: 1644175569}
   - component: {fileID: 1644175568}
   m_Layer: 5
   m_Name: Button ParqueNatural
@@ -1894,10 +1942,11 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 51083711}
           m_MethodName: NewBuilding
-          m_Mode: 3
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgument: {fileID: 1583005380636244, guid: 33b09444fd2d7c14a95351bac49e5564,
+              type: 2}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
             m_IntArgument: 3
             m_FloatArgument: 0
             m_StringArgument: 
@@ -1923,6 +1972,18 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
+--- !u!114 &1644175569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1644175563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e25e92b6b8a5e664aadd7e0400937ec0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  building: {fileID: 1583005380636244, guid: 33b09444fd2d7c14a95351bac49e5564, type: 2}
 --- !u!1 &1654475502
 GameObject:
   m_ObjectHideFlags: 0
@@ -2251,6 +2312,7 @@ GameObject:
   - component: {fileID: 2121474881}
   - component: {fileID: 2121474880}
   - component: {fileID: 2121474879}
+  - component: {fileID: 2121474883}
   - component: {fileID: 2121474882}
   m_Layer: 5
   m_Name: Button Fazenda
@@ -2370,10 +2432,11 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 51083711}
           m_MethodName: NewBuilding
-          m_Mode: 3
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgument: {fileID: 1346705143869348, guid: 5e5c1c78696d1574eb384ac84fc0e875,
+              type: 2}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
             m_IntArgument: 2
             m_FloatArgument: 0
             m_StringArgument: 
@@ -2399,3 +2462,15 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
+--- !u!114 &2121474883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2121474877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e25e92b6b8a5e664aadd7e0400937ec0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  building: {fileID: 1346705143869348, guid: 5e5c1c78696d1574eb384ac84fc0e875, type: 2}
