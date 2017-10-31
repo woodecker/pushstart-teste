@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Gameplay : MonoBehaviour {
 
-	private bool paused;
+	private bool paused = false;
+	public bool creating = false;
 
 	public static Gameplay instance;
 
@@ -41,6 +42,8 @@ public class Gameplay : MonoBehaviour {
 		Vector3 myPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		dragBuild = Instantiate (building, myPosition, Quaternion.identity);
 		dragBuild.GetComponent<Building> ().Drag ();
+
+		creating = true;
 	}
 
 	public void ReleaseBuilding(){
@@ -60,5 +63,7 @@ public class Gameplay : MonoBehaviour {
 		}
 
 		dragBuild = null;
+
+		creating = false;
 	}
 }
