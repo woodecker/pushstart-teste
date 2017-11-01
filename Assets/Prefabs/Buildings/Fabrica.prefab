@@ -131,9 +131,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 15
   prize: 3
-  timeToCreate: 10
+  timeToCreate: 5
   timeToPrize: 6
   state: 0
+  prefabCoin: {fileID: 1075059747790540, guid: 467f6d4177755f74e854d2f9d149b6d2, type: 2}
 --- !u!212 &212503816668803706
 SpriteRenderer:
   m_ObjectHideFlags: 1

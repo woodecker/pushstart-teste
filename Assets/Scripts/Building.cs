@@ -23,6 +23,11 @@ public class Building : MonoBehaviour {
 
 	public State state;
 
+	private Vector3 coinWorldPosition;
+	RectTransform myRect;
+	public GameObject prefabCoin;
+	float fxCoinForce = 0.1f;
+
 	void Awake () {
 
 		t_nextPrize = timeToPrize;
@@ -37,6 +42,8 @@ public class Building : MonoBehaviour {
 		transform.position = new Vector3 (transform.position.x, transform.position.y, zPosition);
 
 		clock = transform.Find ("Clock");
+
+		GetCoinPosition ();
 	}
 
 	public void Drag(){
@@ -70,6 +77,11 @@ public class Building : MonoBehaviour {
 			if (t_nextPrize <= 0) {
 				Player.instance.Money += prize;
 				t_nextPrize = timeToPrize;
+
+				//fx
+				GetCoinPosition();	//UI coin position can move
+				GameObject fxCoin = Instantiate(prefabCoin, transform.position, Quaternion.identity);
+				fxCoin.GetComponent<FxCoin>().MoveCoin(coinWorldPosition);
 			}
 		}
 
@@ -105,5 +117,17 @@ public class Building : MonoBehaviour {
 
 	public bool isColliding(){
 		return colliding;
+	}
+
+	void GetCoinPosition(){
+		GameObject uiCoin = GameObject.Find ("PlayerCoin");
+		if (uiCoin != null) {
+			myRect = uiCoin.GetComponent<RectTransform> ();
+
+			RectTransformUtility.ScreenPointToWorldPointInRectangle (myRect,
+				new Vector2 (myRect.position.x, myRect.position.y),
+				Camera.main,
+				out coinWorldPosition);
+		}
 	}
 }
