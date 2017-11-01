@@ -6,6 +6,10 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour {
 
 	public string nickname;
+	public string Nickname {
+		get {return nickname;}
+		set {nickname = value; UpdateGui ();}
+	}
 
 	public int money = 999;
 	public int Money {
