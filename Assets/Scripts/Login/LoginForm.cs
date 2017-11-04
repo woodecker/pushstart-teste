@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Security.Cryptography;
+using System.Text;
+using System;	//for Action
 
 [System.Serializable]
 public class LoginInfo
@@ -27,18 +30,38 @@ public class PlayerInfo
 }
 
 public class LoginForm : MonoBehaviour {
-	string login_url = "http://dev.pushstart.com.br/desafio/public/api/auth/login";
-	string username = "pusher";
-	string password = "b7e94be513e96e8c45cd23d162275e5a12ebde9100a425c4ebcdd7fa4dcd897c";	//senha sha256
 
+	public static LoginForm instance;
+
+	string login_url = "http://dev.pushstart.com.br/desafio/public/api/auth/login";
 	string status_url = "http://dev.pushstart.com.br/desafio/public/api/status";
 
-	IEnumerator Start () {
+	//string username = "pusher";
+	//string password = "b7e94be513e96e8c45cd23d162275e5a12ebde9100a425c4ebcdd7fa4dcd897c";	//senha sha256
+
+	private string token;
+
+	void Awake(){
+		if (instance == null)
+			instance = this;
+
+		DontDestroyOnLoad (this.gameObject);
+	}
+
+	public void LoginUser(string username, string password, Action onFinished){
+		StartCoroutine(LoginPushStart (username, password, onFinished));
+	}
+
+	public void GetUser(){
+		StartCoroutine(GetUserData (token));
+	}
+
+	IEnumerator LoginPushStart (string username, string password, Action onFinished) {
 
 		WWWForm form = new WWWForm();
 
 		form.AddField( "username", username );
-		form.AddField( "password", password );
+		form.AddField( "password", PasswordEncryption(password) );
 
 		WWW download = new WWW( login_url, form );
 
@@ -53,7 +76,9 @@ public class LoginForm : MonoBehaviour {
 			lg = LoginInfo.CreateFromJSON (download.text);
 			Debug.Log (lg.token);
 
-			StartCoroutine(GetUserData (lg.token));
+			token = lg.token;
+			onFinished ();
+			//StartCoroutine(GetUserData (lg.token));
 		}
 	}
 
@@ -81,5 +106,21 @@ public class LoginForm : MonoBehaviour {
 			Player.instance.Money = pl.money;
 			Player.instance.Nickname = pl.nickname;
 		}
+	}
+
+	string PasswordEncryption(string passwordString){
+		UTF8Encoding ue = new UTF8Encoding ();
+		byte[] bytes = ue.GetBytes (passwordString);
+
+		SHA256CryptoServiceProvider sha256 = new SHA256CryptoServiceProvider ();
+		byte[] hashBytes = sha256.ComputeHash(bytes);
+
+		string hashString = "";
+
+		for (int i = 0; i < hashBytes.Length; i++) {
+			hashString += System.Convert.ToString(hashBytes[i], 16).PadLeft(2, '0');
+		}
+
+		return hashString.PadLeft(32, '0');
 	}
 }

@@ -28,8 +28,11 @@ public class Player : MonoBehaviour {
 	}
 
 	void Start () {
-		nicknameText.text = nickname;
-		moneyText.text = money.ToString ();
+
+		LoginForm.instance.GetUser ();
+
+		//nicknameText.text = nickname;
+		//moneyText.text = money.ToString ();
 	}
 	
 	void UpdateGui () {
