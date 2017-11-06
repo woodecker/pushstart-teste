@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Security.Cryptography;
 using System.Text;
-using System;	//for Action
+using System;
 
 [System.Serializable]
 public class LoginInfo
@@ -48,15 +48,15 @@ public class LoginForm : MonoBehaviour {
 		DontDestroyOnLoad (this.gameObject);
 	}
 
-	public void LoginUser(string username, string password, Action onFinished){
-		StartCoroutine(LoginPushStart (username, password, onFinished));
+	public void LoginUser(string username, string password, Action onFinished, Action<string> onError){
+		StartCoroutine(LoginPushStart (username, password, onFinished, onError));
 	}
 
 	public void GetUser(){
 		StartCoroutine(GetUserData (token));
 	}
 
-	IEnumerator LoginPushStart (string username, string password, Action onFinished) {
+	IEnumerator LoginPushStart (string username, string password, Action onFinished, Action<string> onError) {
 
 		WWWForm form = new WWWForm();
 
@@ -69,6 +69,7 @@ public class LoginForm : MonoBehaviour {
 
 		if(!string.IsNullOrEmpty(download.error)) {
 			print( "Error downloading: " + download.error );
+			onError (download.error);
 		} else {
 			Debug.Log(download.text);
 
