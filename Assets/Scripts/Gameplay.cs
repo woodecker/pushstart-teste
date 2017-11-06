@@ -39,7 +39,16 @@ public class Gameplay : MonoBehaviour {
 			return;
 
 		Debug.Log ("new building");
-		Vector3 myPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+		//follow mouse or touch
+		Vector3 myPosition;
+		if (Input.touchCount > 0) {
+			Touch touch = Input.GetTouch (0);
+			myPosition = Camera.main.ScreenToWorldPoint (new Vector3 (touch.position.x, touch.position.y, 0f));
+		} else {
+			myPosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+		}
+
 		dragBuild = Instantiate (building, myPosition, Quaternion.identity);
 		dragBuild.GetComponent<Building> ().Drag ();
 

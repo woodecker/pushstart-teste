@@ -59,7 +59,13 @@ public class Building : MonoBehaviour {
 		if (state == State.Dragging) {
 			
 			//follow mouse
-			Vector3 myPosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+			Vector3 myPosition;
+			if (Input.touchCount > 0) {
+				Touch touch = Input.GetTouch (0);
+				myPosition = Camera.main.ScreenToWorldPoint (new Vector3 (touch.position.x, touch.position.y, 0f));
+			} else {
+				myPosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+			}
 
 			//z-order
 			float zPosition = Gameplay.instance.zLayer + myPosition.y * 0.1f;
