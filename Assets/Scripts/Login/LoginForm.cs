@@ -33,8 +33,8 @@ public class LoginForm : MonoBehaviour {
 
 	public static LoginForm instance;
 
-	string login_url = "http://dev.pushstart.com.br/desafio/public/api/auth/login";
-	string status_url = "http://dev.pushstart.com.br/desafio/public/api/status";
+	public string login_url = "http://dev.pushstart.com.br/desafio/public/api/auth/login";
+	public string status_url = "http://dev.pushstart.com.br/desafio/public/api/status";
 
 	//string username = "pusher";
 	//string password = "b7e94be513e96e8c45cd23d162275e5a12ebde9100a425c4ebcdd7fa4dcd897c";	//senha sha256
