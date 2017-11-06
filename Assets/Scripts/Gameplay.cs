@@ -13,23 +13,27 @@ public class Gameplay : MonoBehaviour {
 
 	public float zLayer = 0f;
 
+	public GameObject panelPause;
+
 	void Awake () {
 		instance = this.GetComponent<Gameplay> ();
 	}
 	
-	void Update () {
-
+	void Start () {
+		panelPause.SetActive (false);
 	}
 
-	void PauseGame(){
+	public void PauseGame(){
 		paused = true;
+		panelPause.SetActive (true);
 	}
 
-	void UnpauseGame(){
+	public void UnpauseGame(){
 		paused = false;
+		panelPause.SetActive (false);
 	}
 
-	bool isPaused(){
+	public bool isPaused(){
 		return paused;
 	}
 
@@ -75,4 +79,5 @@ public class Gameplay : MonoBehaviour {
 
 		creating = false;
 	}
+
 }

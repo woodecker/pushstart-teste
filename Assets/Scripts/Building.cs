@@ -55,7 +55,10 @@ public class Building : MonoBehaviour {
 	}
 
 	void Update () {
-		
+
+		if (Gameplay.instance.isPaused ())
+			return;
+
 		if (state == State.Dragging) {
 			
 			//follow mouse
