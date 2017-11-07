@@ -6,7 +6,6 @@ public class FxCoin : MonoBehaviour {
 
 	Vector3 myTarget;
 	bool move = false;
-	float timeLife = 3f;
 
 	public void MoveCoin (Vector3 target) {
 		myTarget = target;
@@ -18,8 +17,13 @@ public class FxCoin : MonoBehaviour {
 			transform.position = Vector2.MoveTowards (transform.position, myTarget, Time.deltaTime * 10f);
 		}
 
-		timeLife -= Time.deltaTime;
-		if (timeLife <= 0f)
-			Destroy (gameObject);
+		if (Vector3.Distance (transform.position, myTarget) < 0.1f) {
+			//wait particles to arrive
+			Invoke ("DestroyMe", 1f);
+		}
+	}
+
+	void DestroyMe(){
+		Destroy (gameObject);
 	}
 }

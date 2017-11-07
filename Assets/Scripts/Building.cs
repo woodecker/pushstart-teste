@@ -80,6 +80,9 @@ public class Building : MonoBehaviour {
 			timeToCreate -= Time.deltaTime;
 			if (timeToCreate <= 0f) {
 				state = State.Completed;
+				Instantiate (Gameplay.instance.particleStars, 
+					new Vector3(transform.position.x, transform.position.y, transform.position.z - 1f), 
+					transform.rotation);
 			}
 		} else if (state == State.Completed) {
 			t_nextPrize -= Time.deltaTime;

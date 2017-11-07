@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4192743686854404}
   - component: {fileID: 212465433086298278}
+  - component: {fileID: 95517654424348798}
   m_Layer: 0
   m_Name: Clock
   m_TagString: Untagged
@@ -118,6 +119,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.56, y: 1.7}
   m_EdgeRadius: 0
+--- !u!95 &95517654424348798
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1748252094806240}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4ee9834ad55ae6f449073cf52a0b92c1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114610828973908890
 MonoBehaviour:
   m_ObjectHideFlags: 1

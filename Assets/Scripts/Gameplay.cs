@@ -14,6 +14,7 @@ public class Gameplay : MonoBehaviour {
 	public float zLayer = 0f;
 
 	public GameObject panelPause;
+	public GameObject particleStars;
 
 	void Awake () {
 		instance = this.GetComponent<Gameplay> ();
