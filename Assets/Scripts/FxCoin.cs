@@ -7,17 +7,26 @@ public class FxCoin : MonoBehaviour {
 	Vector3 myTarget;
 	bool move = false;
 
-	public void MoveCoin (Vector3 target) {
-		myTarget = target;
+	GameObject uiCoin;
+	RectTransform myRect;
+	private Vector3 coinWorldPosition;
+
+	void Start(){
+		uiCoin = GameObject.Find ("PlayerCoin");
+		if (uiCoin != null) {
+			myRect = uiCoin.GetComponent<RectTransform> ();
+		}
+		GetCoinPosition ();
 		move = true;
 	}
 	
 	void Update () {
 		if (move) {
-			transform.position = Vector2.MoveTowards (transform.position, myTarget, Time.deltaTime * 10f);
+			GetCoinPosition ();
+			transform.position = Vector2.MoveTowards (transform.position, coinWorldPosition, Time.deltaTime * 10f);
 		}
-
-		if (Vector3.Distance (transform.position, myTarget) < 0.1f) {
+		
+		if (Vector3.Distance (transform.position, coinWorldPosition) < 0.1f) {
 			//wait particles to arrive
 			Invoke ("DestroyMe", 1f);
 		}
@@ -25,5 +34,15 @@ public class FxCoin : MonoBehaviour {
 
 	void DestroyMe(){
 		Destroy (gameObject);
+	}
+
+	void GetCoinPosition(){
+		
+		if (myRect != null) {
+			RectTransformUtility.ScreenPointToWorldPointInRectangle (myRect,
+				new Vector2 (myRect.position.x, myRect.position.y),
+				Camera.main,
+				out coinWorldPosition);
+		}
 	}
 }
